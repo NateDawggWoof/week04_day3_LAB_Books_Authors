@@ -46,7 +46,10 @@ def create_book():
 
 
 # SHOW
-
+@books_blueprint.route('/books/<id>')
+def show_book(id):
+    book = book_repo.select(id)
+    return render_template('books/show.html', book = book)
 
 
 ##### ADVANCED EXTENSION #####

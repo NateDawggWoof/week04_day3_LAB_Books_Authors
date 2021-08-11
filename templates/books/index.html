@@ -9,7 +9,7 @@
     <!-- <li>
         <ul> -->
     <div>
-        {{ book.title}}
+        <p> <a href="/books/{{book.id}}">{{ book.title}}</a></p> 
         <hr>
     </div>
     <div>
@@ -19,6 +19,7 @@
     <!-- </ul>
     </li> -->
     </div>
+    
     <div>
         <form action="/books/{{book.id}}/delete" method = "post">
         <button>delete</button>
