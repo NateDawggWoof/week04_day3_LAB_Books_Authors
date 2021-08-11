@@ -2,5 +2,28 @@
 {% block content %}
 
 <p>New book</p>
+<form action="/books" method = 'post'>
+<div>
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title">
+</div>
+<div>
+    <label for="genre">Genre: </label>
+    <input type="text" name="genre" id="genre">  
+</div>
+<div>
+    <label for="publisher">Publisher: </label>
+    <input type="text" name="publisher" id="publisher">  
+</div>
+<div>
+    <label for="author">Author: </label>
+    <select name="author_id" id="author">
+        {% for author in all_authors %}
+            <option value='{{author.id}}'>{{author.full_name()}}</option>
+        {% endfor %}
+    </select>
+</div>
+<button type = "submit">Add Book</button>
+</form>
 
 {% endblock %}

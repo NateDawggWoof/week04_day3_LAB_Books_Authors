@@ -26,9 +26,23 @@ def delete_book(id):
 
 
 # NEW
+@books_blueprint.route('/books/new')
+def new_book():
+    authors = author_repo.select_all()
+    return render_template('books/new.html', all_authors = authors)
 
 
 # CREATE
+@books_blueprint.route('/books', methods = ['POST'])
+def create_book():
+    title = request.form['title']
+    genre = request.form['genre']
+    publisher = request.form['publisher']
+    author_id = request.form['author_id']
+    author = author_repo.select(author_id)
+    book = Book(title, genre,publisher, author)
+    book_repo.save(book)
+    return redirect('/books')
 
 
 # SHOW
