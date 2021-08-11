@@ -73,6 +73,3 @@ def update_book(id):
     book = Book(title, genre,publisher, author, id)
     book_repo.update(book)
     return redirect('/books')
-
-
-

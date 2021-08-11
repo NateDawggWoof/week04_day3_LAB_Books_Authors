@@ -16,11 +16,11 @@
     <input type="text" id= 'publisher' name= 'publisher' value = '{{book.publisher}}' required>
 </div>
 <div>
-    <label for="author_id">Author: </label>
+    <label for="author">Author: </label>
 
     <select name="author_id" id="author_id">
         {% for author in all_authors %}
-        <option value="{{author.full_name()}}" 
+        <option value="{{author.id}}" 
         {% if book.author.id == author.id %} selected = "selected" {% endif %}>
         {{author.full_name()}}  
         </option>
